@@ -3,8 +3,6 @@
 #include <iomanip>
 #include "JoyStick.h"
 
-int16_t valueReturn[64];
-int16_t numReturn[64];
 struct ButtonState JSButton;
 
 int main() {
