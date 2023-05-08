@@ -29,6 +29,8 @@ JoyStick::JoyStick(const char * devFileName) {
     ButtonStateOld.leftAxis[1]=0;
     ButtonStateOld.rightAxis[0]=0;
     ButtonStateOld.rightAxis[1]=0;
+    ButtonStateOld.LB=0;
+    ButtonStateOld.RB=0;
     ButtonStateNow=ButtonStateOld;
 
     ButtonState=0;
@@ -146,7 +148,9 @@ struct ButtonState JoyStick::getButtonState() {
                         ButtonStateNow.up=1;
                     else if (value[i]==0)
                         {ButtonStateNow.up=0;
-                        ButtonStateNow.down=0;}
+                        ButtonStateNow.down=0;ButtonStateNow.RB=0;}
+                    else if (value[i]==1)
+                        ButtonStateNow.RB=1;
                     break;
                 }
                 case 6:
@@ -156,7 +160,10 @@ struct ButtonState JoyStick::getButtonState() {
                     else if (value[i]==-32767)
                         ButtonStateNow.left=1;
                     else if (value[i]==0)
-                    {ButtonStateNow.left=0;ButtonStateNow.right=0;}
+                    {ButtonStateNow.left=0;ButtonStateNow.right=0;ButtonStateNow.LB=0;}
+                    else if (value[i]==1)
+                    {ButtonStateNow.LB=1;}
+                    break;
                 }
             }
         }

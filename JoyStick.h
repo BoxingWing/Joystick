@@ -20,6 +20,8 @@ struct ButtonState{
     int16_t down;
     int16_t left;
     int16_t right;
+    int16_t LB;
+    int16_t RB;
     double leftAxis[2]; // first for up and down, second for left and right. Up and right are positive, values are normalized.
     double rightAxis[2];
 };
